@@ -1,14 +1,8 @@
 const connection = require("../config/database");
 
 const getHomePage = (req, res) => {
-  let users = [];
-  connection.query("select *from Users u", function (err, results, fields) {
-    users = results;
-    console.log(">>>result homepage = ", results); // results contains rows returned by server
-    //console.log(">>>fileds = ",fields); // fields contains extra meta data about results, if available
-    console.log(">>>check result", users);
-    res.send(JSON.stringify(users));
-  });
+  
+    return res.render("home.ejs")
 };
 // Sequelize ORM & Prisma & TypeORM
 const getA = (req, res) => {
@@ -19,8 +13,14 @@ const getSample = (req, res) => {
   res.render("sample");
 };
 
+const postCreaeUser = (req, res) =>{
+    res.send('create a new user')
+    console.log(">>>req.body",req.body)
+}
+// const getHome
 module.exports = {
   getHomePage,
   getA,
   getSample,
+  postCreaeUser
 };

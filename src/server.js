@@ -7,12 +7,15 @@ const { config } = require('dotenv');
 const app = express();
 const port = process.env.PORT || 8080;
 const webRoutes = require("./routes/web");
-const connection = require('./config/database')
+const connection = require('./config/database');
+
+app.use(express.json()) // for json
+app.use(express.urlencoded({ extended: true }))
 
 configViewEngine(app);
-app.use("/", webRoutes)
+app.use("/", webRoutes);
 
-//test mysql
+
 
 
 // connection.query(
