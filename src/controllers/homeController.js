@@ -28,7 +28,7 @@ const getUpdatePage = async (req,res) => {
 const postCreaeUser = async (req, res) =>{
     let {email, name, city} = req.body;
     
-    console.log("email: ", email, ",name: ",name, ",city: ",city)
+    // console.log("email: ", email, ",name: ",name, ",city: ",city)
 
     let [rows, fields] = await connection.query(
         `INSERT INTO Users  (email, name, city)
